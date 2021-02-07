@@ -48,6 +48,7 @@ def is_valid_docker_host(url: str) -> bool:
         cli = docker.DockerClient(base_url=url)
         _ = cli.info()
     except Exception as e:
+        logging.error(f"Invalid DOCKER_HOST: {e}")
         return False
     return True
 
